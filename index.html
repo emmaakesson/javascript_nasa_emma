@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <h1>Nasa Mars Rovers</h1> 
+
+            <label class="switchBtn" >
+                <input type="checkbox" id="switchBtn">
+                <span class="slider round"></span>
+            </label>
+        </header>
+        
+        <div class="container">
+            <h2>Choose your Space Name</h2>
+            <!-- form som innehåller label, input, knapp med id för javascript. autocomplete off för att inte få förslag på det man tidigare skrivit -->
+            <form class="space-name" aria-autocomplete="off">
+                <label for="space-name">Space Name (must be 3 characters) </label>
+                <input type="text" id="space-name" class="input-field" placeholder="Pick your space name" autocomplete="off">
+                <!-- autocomplete off för att ta bort historik som skrivits in -->
+                <button id="submit-btn">Show my name</button>
+            </form>
+        </div>
+
+        <main>
+            <!-- här är id för javascript h2 -->
+            <h2 id="name-display">Welcome!</h2>
+            <!-- för nasa bilder -->
+            <section id="image-container">
+                <!-- javascript -->
+            </section>
+        </main>
+    </div>
+
+</div>
+<!-- länka javascript -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+@import'sass/variables'; 
+@import'sass/typography';
+
+*,html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: poppins;
+    color: black;
+    background-color: $background-color;
+    color: $text-color;
+    // dark-mode body:
+    &.dark{
+        background-color: $background-color-dark-mode;
+        color: $text-color-dark-mode;
+    }
+}
+
+// container som håller allt
+.main-container{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .main-header{
+        padding: 1rem;
+        flex: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: $purple;
+        // dark-mode för main-header
+        &.dark{
+            background-color: $purple-dark-mode;
+        }
+    }
+    
+    .container{
+        margin: 2rem 0 2rem 0;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        @media (min-width: 1000px) {
+            flex: 0 0 50%;
+        }
+        .space-name{
+            background-color: $purple;
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            // dark-mode för formulär
+            &.dark{
+                background-color: $purple-dark-mode;
+            }
+            .input-field{
+                flex: 0 0 100%;
+                height: 56px;
+                margin: 1rem 0 1rem 0;
+                padding-left: 1.4rem;
+                border-radius: 6px;
+                // ta bort standard beteend för input-field
+                outline: none;
+                border: none;
+                // pseudo-element för placeholder text
+                &::placeholder{
+                    color: #898989;
+                }
+            }
+            button{
+                font-weight: 500;
+                @media (min-width:520px){
+                    width: auto;
+                }
+                padding: 1rem 3.5rem;
+                border-radius: 15px;
+                margin-top: 1rem;
+                // så knappen inte hoppar
+                border: 1px solid transparent;
+                &:focus{
+                    outline: none;
+                    border: 1px solid transparent;
+                }
+            }
+        }
+    }
+
+    main{
+        width: 100%;
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        // html
+        #image-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem;
+            gap: 1rem;
+            .card{
+                flex: 0 0 100%;
+                @media (min-width: 750px) {
+                    flex: 0 0 calc((100%/2 - 1rem));
+                }
+                @media (min-width:1000px) {
+                    flex: 0 0 calc(100%/4 - 1rem);
+                }
+                .card-figure{
+                    border: 1px solid black;
+                    height: 300px;
+                    width: 100%;
+                    .card-image{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover; 
+                        object-position: center; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// från https://www.w3schools.com/howto/howto_css_switch.asp
+// switch = boxen runt slidern 
+.switchBtn {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    /* Gömmer default HTML checkbox */
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked {
+            //När den är i kryssad 
+            // https://www.w3schools.com/cssref/sel_element_pluss.asp
+            + {
+                .slider {
+                    background-color: #3B304B;
+                    &:before {
+                        //Påverkar cirkeln
+                        transform: translateX(23px); //hur långt cirkel förflyttar sig
+                        background-color: $background-color-dark-mode;
+                    }
+                }
+            }
+        }
+        &:focus {
+            //När den är markerad klickad på
+            + {
+                .slider {
+                    //Väljer alla .slider som är placerade direkt efter input
+                    //Skugga när man klickar
+                    box-shadow: 0 0 2px black;
+                }
+            }
+        }
+    }
+    /* slider */
+    .slider {
+        //Lila BG 
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #BCA0E6;
+        border-radius: 34px;
+        transition: .4s;
+
+        &:before {
+            //Cirkeln i slider
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: $background-color;
+            border-radius: 50%;
+            transition: .4s;
+        }
+    }
+}
